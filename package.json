@@ -1,0 +1,50 @@
+{
+  "name": "pi-vim-editor",
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "bun@1.3.11",
+  "license": "Apache-2.0",
+  "description": "Vim-style modal editor extension for pi",
+  "homepage": "https://github.com/OneNoted/pi-vim-editor",
+  "bugs": {
+    "url": "https://github.com/OneNoted/pi-vim-editor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OneNoted/pi-vim-editor.git"
+  },
+  "keywords": [
+    "pi-package",
+    "pi",
+    "vim",
+    "modal",
+    "editor"
+  ],
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "files": [
+    "index.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p ./tsconfig.json",
+    "smoke": "bash ./scripts/smoke.sh",
+    "pack:dry-run": "bun pm pack --dry-run"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-tui": "*"
+  },
+  "devDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-tui": "*",
+    "typescript": "^5.9.3"
+  }
+}
