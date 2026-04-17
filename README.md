@@ -35,7 +35,7 @@ pi install /path/to/pi-vim-editor
 ### Install from npm
 
 ```bash
-pi install npm:pi-vim-editor
+pi install npm:@onenote/pi-vim-editor
 ```
 
 ## Development
@@ -58,10 +58,10 @@ bun run pack:dry-run
 
 ```bash
 bunx npm login
-bun publish --access public
+bunx npm publish --access public
 ```
 
-`bun publish --dry-run` still checks auth, so `bun run pack:dry-run` is the easiest local packaging check before publishing.
+`bun run pack:dry-run` is the easiest local packaging check before publishing.
 
 ## Safety / failure mode
 
