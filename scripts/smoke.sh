@@ -2,10 +2,19 @@
 set -euo pipefail
 
 EXT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
-AGENT_DIR="${PI_CODING_AGENT_DIR:-$(CDPATH= cd -- "$EXT_DIR/../.." && pwd)}"
-PI_BIN="${PI_BIN:-pi}"
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
+
+AGENT_DIR="${PI_CODING_AGENT_DIR:-$TMP_DIR/agent}"
+mkdir -p "$AGENT_DIR"
+
+if [[ -n "${PI_BIN:-}" ]]; then
+  PI_BIN="$PI_BIN"
+elif [[ -x "$EXT_DIR/node_modules/.bin/pi" ]]; then
+  PI_BIN="$EXT_DIR/node_modules/.bin/pi"
+else
+  PI_BIN="pi"
+fi
 
 failures=0
 
